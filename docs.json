@@ -48,7 +48,8 @@
         {
           "anchor": "Remeinium",
           "href": "https://remeinium.com/",
-          "icon": "house"
+          "icon": "house",
+          "iconType": "solid"
         },
         {
           "anchor": "HuggingFace",
