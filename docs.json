@@ -3,48 +3,23 @@
   "theme": "mint",
   "name": "Embedding Siyabasa Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#a531e8",
+    "light": "#a405e8",
+    "dark": "#641287"
   },
   "favicon": "/favicon.svg",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Welcome",
         "groups": [
           {
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
               "essentials/reusable-snippets"
             ]
           },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
         ]
       },
       {
@@ -71,13 +46,13 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Remeinium",
+          "href": "https://remeinium.com/",
+          "icon": "home"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
+          "anchor": "HuggingFace",
+          "href": "https://huggingface.com/spaces/Embedding_Siyabasa",
           "icon": "newspaper"
         }
       ]
@@ -91,13 +66,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@remeinium.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "API Console",
+      "href": "https://remeinium.mintlify.app/api-reference/introduction"
     }
   },
   "contextual": {
