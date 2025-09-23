@@ -48,7 +48,7 @@
         {
           "anchor": "Remeinium",
           "href": "https://remeinium.com/",
-          "icon": "home"
+          "icon": "house"
         },
         {
           "anchor": "HuggingFace",
@@ -72,20 +72,8 @@
     "primary": {
       "type": "button",
       "label": "API Console",
-      "href": "https://remeinium.mintlify.app/api-reference/introduction"
+      "href": "https://esdocs.ai.remeinium.com/api-reference/introduction"
     }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
   },
   "footer": {
     "socials": {
