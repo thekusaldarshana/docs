@@ -3,7 +3,7 @@
   "theme": "mint",
   "name": "Embedding Siyabasa Docs",
   "colors": {
-    "primary": "#a444f2",
+    "primary": "#d384f0",
     "light": "#a405e8",
     "dark": "#641287"
   },
@@ -17,7 +17,7 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "essentials/reusable-snippets"
+              "essentials/model"
             ]
           }
         ]
