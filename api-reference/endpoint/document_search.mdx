@@ -1,0 +1,31 @@
+---
+title: "Document Search"
+description: "Upload documents and perform semantic search."
+---
+
+There are 2 `endpoints` for perform document search
+
+**Step 1: Index documents**
+
+```python
+from gradio_client import Client, handle_file
+
+client = Client("Remeinium/Embedding_Siyabasa")
+result = client.predict(
+    file=handle_file('path/to/documents.txt'),
+    api_name="/_index_upload"
+)
+```
+
+**Step 2: Search documents**
+
+```json
+from gradio_client import Client
+
+client = Client("Remeinium/Embedding_Siyabasa")
+result = client.predict(
+    query="සිංහල භාෂාව",
+    topn_=5,
+    api_name="/_search_wrapper"
+)
+```

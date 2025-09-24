@@ -1,33 +1,60 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "Introduction"
+description: "Example section for showcasing API endpoints"
 ---
-
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
 
 ## Welcome
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+There are 7 API endpoints you can access.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
+### Endpoints
 
-## Authentication
+1. `/get_embedding`
+2. `/word_similarity`
+3. `/nearest_neighbors`
+4. `/sentence_embedding`
+5. `/sentence_similarity`
+6. `/_index_upload`
+7. `/_search_wrapper`
 
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
+### Quick Start
 
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
-```
+<Tabs>
+  <Tab title="Python">
+    ```python
+    from gradio_client import Client
+    
+    client = Client("Remeinium/Embedding_Siyabasa")
+    result = client.predict(
+        word="අම්මා",
+        api_name="/get_embedding"
+    )
+    print(json.dumps(result, indent=4))
+    ```
+  </Tab>
+  <Tab title="Javascript">
+    ```javascript
+    import { Client } from "@gradio/client";
+    
+    const client = await Client.connect("Remeinium/Embedding_Siyabasa");
+    const result = await client.predict("/get_embedding", {
+        word: "අම්මා"
+    });
+    console.log(result.data);
+    ```
+  </Tab>
+  <Tab title="cURL">
+    ```bash
+    curl -X POST https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/get_embedding \
+      -H "Content-Type: application/json" \
+      -d '{"data": ["අම්මා"]}' | awk -F'"' '{ print $4}' | read EVENT_ID; \
+    curl -N https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/get_embedding/$EVENT_ID
+    ```
+  </Tab>
+</Tabs>
+
+<Tip>
+  **See detailed usage examples with** `python`
+
+  Go to next Topic \>
+</Tip>

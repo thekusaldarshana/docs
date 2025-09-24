@@ -1,0 +1,28 @@
+---
+title: "/sentence_similarity"
+description: "Compute the similarity between two Sinhala sentences."
+---
+
+**Python example:**
+
+```python
+from gradio_client import Client
+
+client = Client("Remeinium/Embedding_Siyabasa")
+result = client.predict(
+    sentence1="මම පාසලට යමි",
+    sentence2="ඔහු පාසලට යයි",
+    api_name="/sentence_similarity"
+)
+```
+
+**Response format:**
+
+```json
+{
+    "sentence1": "මම පාසලට යමි",
+    "sentence2": "ඔහු පාසලට යයි", 
+    "similarity": 0.734567,
+    "model": "UgannA_SiyabasaV2"
+}
+```

@@ -1,0 +1,29 @@
+---
+title: "/word_similarity"
+openapi: "GET /plants"
+description: "Compute the similarity between two Sinhala words."
+---
+
+**Python example:**
+
+```python
+from gradio_client import Client
+
+client = Client("Remeinium/Embedding_Siyabasa")
+result = client.predict(
+    word1="අම්මා",
+    word2="තාත්තා", 
+    api_name="/word_similarity"
+)
+```
+
+**Response format:**
+
+```json
+{
+    "word1": "අම්මා",
+    "word2": "තාත්තා",
+    "similarity": 0.856234,
+    "model": "UgannA_SiyabasaV2"
+}
+```

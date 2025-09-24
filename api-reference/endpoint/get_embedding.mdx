@@ -1,0 +1,29 @@
+---
+title: "/get_embedding"
+openapi: "POST /plants"
+description: "Get the embedding vector for a Sinhala word."
+---
+
+**Python example:**
+
+```python
+from gradio_client import Client
+
+client = Client("Remeinium/Embedding_Siyabasa")
+result = client.predict(
+    word="අම්මා",
+    api_name="/get_embedding"
+)
+```
+
+**Response format:**
+
+```json
+{
+    "text": "අම්මා",
+    "embedding": [0.123, -0.456, 0.789, ...],
+    "dimensions": 300,
+    "model": "UgannA_SiyabasaV2",
+    "language": "Sinhala"
+}
+```

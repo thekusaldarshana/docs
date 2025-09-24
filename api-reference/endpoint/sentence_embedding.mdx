@@ -1,0 +1,29 @@
+---
+title: "/sentence_embedding"
+openapi: "DELETE /plants/{id}"
+description: "Get the embedding vector for a Sinhala sentence."
+---
+
+**Python example:**
+
+```python
+from gradio_client import Client
+
+client = Client("Remeinium/Embedding_Siyabasa")
+result = client.predict(
+    sentence="මම පාසලට යමි",
+    api_name="/sentence_embedding"
+)
+```
+
+**Response format:**
+
+```json
+{
+    "sentence": "මම පාසලට යමි",
+    "embedding": [0.123, -0.456, 0.789, ...],
+    "dimensions": 300,
+    "tokens": ["මම", "පාසලට", "යමි"],
+    "model": "UgannA_SiyabasaV2"
+}
+```

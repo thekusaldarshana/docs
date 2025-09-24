@@ -1,0 +1,32 @@
+---
+title: "/nearest_neighbors"
+openapi: "WEBHOOK /plant/webhook"
+description: "Find semantically similar words for a given Sinhala word."
+---
+
+**Python example:**
+
+```python
+from gradio_client import Client
+
+client = Client("Remeinium/Embedding_Siyabasa")
+result = client.predict(
+    word="පෞරාණික",
+    top_k=5,
+    api_name="/nearest_neighbors"
+)
+```
+
+**Response format:**
+
+```json
+{
+    "query": "පෞරාණික",
+    "neighbors": [
+        {"word": "ඉපැරණි", "similarity": 0.755...},
+        {"word": "පුරාවිද්යාත්මක", "similarity": 0.749...},
+        ...
+    ],
+    "model": "UgannA_SiyabasaV2"
+}
+```
