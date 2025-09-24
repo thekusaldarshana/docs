@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "linden",
+  "theme": "aspen",
   "name": "Embedding Siyabasa Docs",
   "colors": {
     "primary": "#d384f0",
