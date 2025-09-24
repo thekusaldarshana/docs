@@ -3,26 +3,87 @@ title: "/sentence_embedding"
 description: "Get the embedding vector for a Sinhala sentence."
 ---
 
-**Python example:**
+<Tabs>
+  <Tab title="Python">
+    **Python example:**
 
-```python
-from gradio_client import Client
+    ```python
+    from gradio_client import Client
+    
+    client = Client("Remeinium/Embedding_Siyabasa")
+    result = client.predict(
+        sentence="මම පාසලට යමි",
+        api_name="/sentence_embedding"
+    )
+    print(json.dumps(result, indent=4))
+    ```
 
-client = Client("Remeinium/Embedding_Siyabasa")
-result = client.predict(
-    sentence="මම පාසලට යමි",
-    api_name="/sentence_embedding"
-)
-```
+    **Response format:**
 
-**Response format:**
+    ```json
+    {
+        "sentence": "මම පාසලට යමි",
+        "embedding": [0.123, -0.456, 0.789, ...],
+        "dimensions": 300,
+        "tokens": ["මම", "පාසලට", "යමි"],
+        "model": "UgannA_SiyabasaV2"
+    }
+    ```
+  </Tab>
+  <Tab title="Javascript">
+    ```javascript
+    import { Client } from "@gradio/client";
+    	
+    	const client = await Client.connect("Remeinium/Embedding_Siyabasa");
+    	const result = await client.predict("/sentence_embedding", { 		
+    			sentence: "මම පාසලට යමි", 
+    	});
+    
+    	console.log(result.data);
+    ```
 
-```json
-{
-    "sentence": "මම පාසලට යමි",
-    "embedding": [0.123, -0.456, 0.789, ...],
-    "dimensions": 300,
-    "tokens": ["මම", "පාසලට", "යමි"],
-    "model": "UgannA_SiyabasaV2"
-}
-```
+    **Response format:**
+
+    ```json
+    {
+        "sentence": "මම පාසලට යමි",
+        "embedding": [0.123, -0.456, 0.789, ...],
+        "dimensions": 300,
+        "tokens": ["මම", "පාසලට", "යමි"],
+        "model": "UgannA_SiyabasaV2"
+    }
+    ```
+  </Tab>
+  <Tab title="cURL">
+    ```bash
+    curl -X POST https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/sentence_embedding -s -H "Content-Type: application/json" -d '{
+    	"data": ["මම පාසලට යමි"]}' \
+    	| awk -F'"' '{ print $4}'  \
+    	| read EVENT_ID; curl -N https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/sentence_embedding/$EVENT_ID
+    ```
+
+    **Response format:**
+
+    ```json
+    {
+        "sentence": "මම පාසලට යමි",
+        "embedding": [0.123, -0.456, 0.789, ...],
+        "dimensions": 300,
+        "tokens": ["මම", "පාසලට", "යමි"],
+        "model": "UgannA_SiyabasaV2"
+    }
+    ```
+  </Tab>
+</Tabs>
+
+#### Accepts 1 parameter:
+
+- `sentence` : `str` \*_<u>Required</u>_
+
+  The input value that is provided in the "Sinhala Sentence" Textbox component.
+
+#### **Returns 1 element**
+
+`str | float | bool | list | dict`
+
+The output value that appears in the "Sentence Embedding" Json component.

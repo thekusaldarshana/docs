@@ -3,17 +3,58 @@ title: "/get_embedding"
 description: "Get the embedding vector for a Sinhala word."
 ---
 
-**Python example:**
+<Tabs>
+  <Tab title="Python">
+    **Python example:**
 
-```python
-from gradio_client import Client
+    ```python
+    from gradio_client import Client
+    
+    client = Client("Remeinium/Embedding_Siyabasa")
+    result = client.predict(
+        word="අම්මා",
+        api_name="/get_embedding"
+    )
+    print(json.dumps(result, indent=4))
+    ```
+  </Tab>
+  <Tab title="Javascript">
+    1. Install the javascript client ([<u>gradio docs</u>](https://www.gradio.app/guides/getting-started-with-the-js-client)) if you don't already have it installed.
 
-client = Client("Remeinium/Embedding_Siyabasa")
-result = client.predict(
-    word="අම්මා",
-    api_name="/get_embedding"
-)
-```
+    ```javascript
+    $ npm i -D @gradio/client
+    ```
+
+    2. Here's your first API call.
+
+    ```javascript
+    import { Client } from "@gradio/client";
+    	
+    	const client = await Client.connect("Remeinium/Embedding_Siyabasa");
+    	const result = await client.predict("/get_embedding", { 		
+    			word: "අම්මා", 
+    	});
+    
+    	console.log(result.data);
+    ```
+  </Tab>
+  <Tab title="cURL">
+    1. Confirm that you have cURL installed on your system.
+
+    ```bash
+    $ curl --version
+    ```
+
+    2. Your first API call
+
+    ```bash
+    curl -X POST https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/get_embedding -s -H "Content-Type: application/json" -d '{
+    	"data": ["අම්මා"]}' \
+    	| awk -F'"' '{ print $4}'  \
+    	| read EVENT_ID; curl -N https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/get_embedding/$EVENT_ID
+    ```
+  </Tab>
+</Tabs>
 
 **Response format:**
 
@@ -26,3 +67,13 @@ result = client.predict(
     "language": "Sinhala"
 }
 ```
+
+#### **Accepts 1 parameter:**
+
+- `word` : `string`  _<u>\*Required</u>_
+- The input value that is provided in the "Sinhala Word" Textbox component.
+
+#### **Returns 1 element**
+
+- `str | float | bool | list | dict`
+- The output value that appears in the "Embedding Vector" Json component.

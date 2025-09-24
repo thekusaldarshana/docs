@@ -3,18 +3,46 @@ title: "/sentence_similarity"
 description: "Compute the similarity between two Sinhala sentences."
 ---
 
-**Python example:**
+<Tabs>
+  <Tab title="Python">
+    **Python example:**
 
-```python
-from gradio_client import Client
-
-client = Client("Remeinium/Embedding_Siyabasa")
-result = client.predict(
-    sentence1="මම පාසලට යමි",
-    sentence2="ඔහු පාසලට යයි",
-    api_name="/sentence_similarity"
-)
-```
+    ```python
+    from gradio_client import Client
+    
+    client = Client("Remeinium/Embedding_Siyabasa")
+    result = client.predict(
+        sentence1="මම පාසලට යමි",
+        sentence2="ඔහු පාසලට යයි",
+        api_name="/sentence_similarity"
+    )
+    print(json.dumps(result, indent=4))
+    ```
+  </Tab>
+  <Tab title="Javascript">
+    ```javascript
+    from gradio_client import Client
+    
+    client = Client("Remeinium/Embedding_Siyabasa")
+    result = client.predict(
+    	sentence1="මම පාසලට යමි",
+    	sentence2="ඔහු පාසලට යයි",
+    	api_name="/sentence_similarity"
+    )
+    print(result)
+    ```
+  </Tab>
+  <Tab title="cURL">
+    ```bash
+    curl -X POST https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/sentence_similarity -s -H "Content-Type: application/json" -d '{
+    	"data": ["මම පාසලට යමි",
+    			"ඔහු පාසලට යයි"
+    			]}' \
+    	| awk -F'"' '{ print $4}'  \
+    	| read EVENT_ID; curl -N https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/sentence_similarity/$EVENT_ID
+    ```
+  </Tab>
+</Tabs>
 
 **Response format:**
 
@@ -26,3 +54,20 @@ result = client.predict(
     "model": "UgannA_SiyabasaV2"
 }
 ```
+
+#### \*\*\\
+
+Accepts 2 parameters:\*\*
+
+1. `sentence1` : `str` \*_<u>Required</u>_
+
+   The input value that is provided in the "Sentence A" Textbox component.
+2. `sentence2` : `str` \*_<u>Required</u>_
+
+   The input value that is provided in the "Sentence B" Textbox component.
+
+#### **Returns 1 element**
+
+`str | float | bool | list | dict`
+
+The output value that appears in the "Sentence Similarity" Json component.

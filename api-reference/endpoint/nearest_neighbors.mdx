@@ -3,29 +3,71 @@ title: "/nearest_neighbors"
 description: "Find semantically similar words for a given Sinhala word."
 ---
 
-**Python example:**
+<Tabs>
+  <Tab title="Python">
+    **Python example:**
 
-```python
-from gradio_client import Client
+    ```python
+    from gradio_client import Client
+    
+    client = Client("Remeinium/Embedding_Siyabasa")
+    result = client.predict(
+        word="පෞරාණික",
+        top_k=5,
+        api_name="/nearest_neighbors"
+    )
+    print(json.dumps(result, indent=4))
+    ```
 
-client = Client("Remeinium/Embedding_Siyabasa")
-result = client.predict(
-    word="පෞරාණික",
-    top_k=5,
-    api_name="/nearest_neighbors"
-)
-```
+    **Response format:**
 
-**Response format:**
+    ```json
+    {
+        "query": "පෞරාණික",
+        "neighbors": [
+            {"word": "ඉපැරණි", "similarity": 0.755...},
+            {"word": "පුරාවිද්යාත්මක", "similarity": 0.749...},
+            ...
+        ],
+        "model": "UgannA_SiyabasaV2"
+    }
+    ```
+  </Tab>
+  <Tab title="Javascript">
+    ```javascript
+    import { Client } from "@gradio/client";
+    	
+    	const client = await Client.connect("Remeinium/Embedding_Siyabasa");
+    	const result = await client.predict("/nearest_neighbors", { 		
+    			word: "පෞරාණික", 		
+    			top_k: 5, 
+    	});
+    
+    	console.log(result.data);
+    	
+    ```
+  </Tab>
+  <Tab title="cURL">
+    ```bash
+    curl -X POST https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/nearest_neighbors -s -H "Content-Type: application/json" -d '{
+    	"data": ["පෞරාණික",5]}' \
+    	| awk -F'"' '{ print $4}'  \
+    	| read EVENT_ID; curl -N https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/nearest_neighbors/$EVENT_ID
+    ```
+  </Tab>
+</Tabs>
 
-```json
-{
-    "query": "පෞරාණික",
-    "neighbors": [
-        {"word": "ඉපැරණි", "similarity": 0.755...},
-        {"word": "පුරාවිද්යාත්මක", "similarity": 0.749...},
-        ...
-    ],
-    "model": "UgannA_SiyabasaV2"
-}
-```
+#### **Accepts 2 parameters:**
+
+1. `word` : `str` \*_<u>Required</u>_
+
+   The input value that is provided in the "Query Word" Textbox component.
+2. `top_k` : `float` _Default: 10_
+
+   The input value that is provided in the "Number of Results" Slider component.
+
+#### **Returns 1 element**
+
+`str | float | bool | list | dict`
+
+The output value that appears in the "Similar Words" Json component.
