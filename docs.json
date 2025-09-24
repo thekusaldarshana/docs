@@ -55,8 +55,7 @@
         {
           "anchor": "HuggingFace",
           "href": "https://huggingface.com/spaces/Embedding_Siyabasa",
-          "icon": "scan-face",
-          "iconType": "solid"
+          "icon": "newspaper"
         }
       ]
     }
