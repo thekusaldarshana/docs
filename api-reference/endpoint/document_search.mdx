@@ -26,10 +26,10 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
     #### **Returns tuple of 2 elements**
 
-    1. `dict(headers: list[Any], data: list[list[Any]], metadata: dict(str, list[Any] | None) | None)` 
+    1. `dict(headers: list[Any], data: list[list[Any]], metadata: dict(str, list[Any] | None) | None)`
 
        > The output value that appears in the `value_45` Dataframe component.
-    2. `str` 
+    2. `str`
 
        > The output value that appears in the "Status" Textbox component.
 
@@ -50,16 +50,16 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
     1. `query` : `string` \*_<u>Required</u>_
 
-       The input value that is provided in the `Search Query` Textbox component.
+       > The input value that is provided in the `Search Query` Textbox component.
     2. `topn_` : `float` _Default 5_
 
-       The input value that is provided in the "Number of Results" Slider component.
+       > The input value that is provided in the "Number of Results" Slider component.
 
     #### **Returns 1 element**
 
     `str | float | bool | list | dict`
 
-    The output value that appears in the `Search Results` Json component.
+    > The output value that appears in the `Search Results` Json component.
   </Tab>
   <Tab title="Javascript">
     ```javascript
