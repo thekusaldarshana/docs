@@ -17,7 +17,8 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "essentials/model"
+              "essentials/model",
+              "essentials/usage-limits"
             ]
           }
         ]
