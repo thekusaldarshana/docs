@@ -5,7 +5,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
 <Tabs>
   <Tab title="Python">
-    ### **Step 1: **`/_index_upload`
+    ### \*\*Step 1: \*\*`/_index_upload`
 
     ```python
     from gradio_client import Client, handle_file
@@ -26,14 +26,14 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
     #### **Returns tuple of 2 elements**
 
-    1. `dict(headers: list[Any], data: list[list[Any]], metadata: dict(str, list[Any] | None) | None)` 
+    1. `dict(headers: list[Any], data: list[list[Any]], metadata: dict(str, list[Any] | None) | None)`
 
        The output value that appears in the `value_45` Dataframe component.
     2. `str`
 
        The output value that appears in the "Status" Textbox component.
 
-    ### **Step 2: **`/_search_wrapper` 
+    ### \*\*Step 2: \*\*`/_search_wrapper`
 
     ```json
     from gradio_client import Client
@@ -57,7 +57,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
     #### **Returns 1 element**
 
-    `str | float | bool | list | dict` 
+    `str | float | bool | list | dict`
 
     The output value that appears in the `Search Results` Json component.
   </Tab>
@@ -86,12 +86,12 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
     #### **Returns list of 2 elements**
 
-    1.  The output value that appears in the `value_45` Dataframe component.
+    1. The output value that appears in the `value_45` Dataframe component.
     2. `string`
 
        The output value that appears in the "Status" Textbox component.
 
-    ### **Step 2: **`/_search_wrapper` 
+    ### \*\*Step 2: \*\*`/_search_wrapper`
 
     ```javascript
     import { Client } from "@gradio/client";
@@ -138,12 +138,12 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
     #### **Returns list of 2 elements**
 
-    1.  The output value that appears in the `value_45` Dataframe component.
+    1. The output value that appears in the `value_45` Dataframe component.
     2. `string`
 
        The output value that appears in the "Status" Textbox component.
 
-    ### **Step 2: **`/_search_wrapper`
+    ### \*\*Step 2: \*\*`/_search_wrapper`
 
     ```bash
     curl -X POST https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/_search_wrapper -s -H "Content-Type: application/json" -d '{

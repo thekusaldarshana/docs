@@ -41,7 +41,6 @@
               "api-reference/endpoint/nearest_neighbors",
               "api-reference/endpoint/sentence_embedding",
               "api-reference/endpoint/sentence_similarity",
-              "api-reference/endpoint/nearest_neighbors",
               "api-reference/endpoint/document_search"
             ]
           }
