@@ -5,7 +5,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
 <Tabs>
   <Tab title="Python">
-    ### \*\*Step 1: \*\*`/_index_upload`
+    ### Step 1: `/_index_upload`
 
     ```python
     from gradio_client import Client, handle_file
@@ -18,13 +18,13 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
     print(json.dumps(result, indent=4))
     ```
 
-    #### **Accepts 1 parameter:**
+    #### Accepts 1 parameter:
 
     1. `file` : `filepath` \*_<u>Required</u>_
 
        The input value that is provided in the "Upload .txt or .csv File" File component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
 
-    #### **Returns tuple of 2 elements**
+    #### Returns tuple of 2 elements:
 
     1. `dict(headers: list[Any], data: list[list[Any]], metadata: dict(str, list[Any] | None) | None)`
 
@@ -46,7 +46,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
     )
     ```
 
-    ### **Accepts 2 parameters:**
+    ### Accepts 2 parameters:
 
     1. `query` : `string` \*_<u>Required</u>_
 
@@ -55,7 +55,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
        > The input value that is provided in the "Number of Results" Slider component.
 
-    #### **Returns 1 element**
+    #### Returns 1 element
 
     `str | float | bool | list | dict`
 
@@ -78,13 +78,13 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
     	console.log(result.data);
     ```
 
-    #### **Accepts 1 parameter:**
+    #### Accepts 1 parameter:
 
     1. `file` : `any` \*_<u>Required</u>_
 
        The input value that is provided in the "Upload .txt or .csv File" File component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
 
-    #### **Returns list of 2 elements**
+    #### Returns list of 2 elements:
 
     1. The output value that appears in the `value_45` Dataframe component.
     2. `string`
@@ -105,7 +105,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
     	console.log(result.data);
     ```
 
-    ### **Accepts 2 parameters:**
+    ### Accepts 2 parameters:
 
     1. `query` : `string` \*_<u>Required</u>_
 
@@ -114,7 +114,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
        The input value that is provided in the "Number of Results" Slider component.
 
-    #### **Returns 1 element**
+    #### Returns 1 element:
 
     The output value that appears in the `Search Results` Json component.
   </Tab>
@@ -130,20 +130,20 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
     	| read EVENT_ID; curl -N https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/_index_upload/$EVENT_ID
     ```
 
-    #### **Accepts 1 parameter:**
+    #### Accepts 1 parameter:
 
     1. `file` : `any` \*_<u>Required</u>_
 
        The input value that is provided in the "Upload .txt or .csv File" File component. The FileData class is a subclass of the GradioModel class that represents a file object within a Gradio interface. It is used to store file data and metadata when a file is uploaded. Attributes: path: The server file path where the file is stored. url: The normalized server URL pointing to the file. size: The size of the file in bytes. orig_name: The original filename before upload. mime_type: The MIME type of the file. is_stream: Indicates whether the file is a stream. meta: Additional metadata used internally (should not be changed).
 
-    #### **Returns list of 2 elements**
+    #### Returns list of 2 elements:
 
     1. The output value that appears in the `value_45` Dataframe component.
     2. `string`
 
        The output value that appears in the "Status" Textbox component.
 
-    ### \*\*Step 2: \*\*`/_search_wrapper`
+    ### Step 2: `/_search_wrapper`
 
     ```bash
     curl -X POST https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/_search_wrapper -s -H "Content-Type: application/json" -d '{
@@ -152,7 +152,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
     	| read EVENT_ID; curl -N https://remeinium-embedding-siyabasa.hf.space/gradio_api/call/_search_wrapper/$EVENT_ID
     ```
 
-    ### **Accepts 2 parameters:**
+    ### Accepts 2 parameters:
 
     1. `query` : `string` \*_<u>Required</u>_
 
@@ -161,7 +161,7 @@ description: "Upload documents and perform semantic search. There are 2 endpoint
 
        The input value that is provided in the "Number of Results" Slider component.
 
-    #### **Returns 1 element**
+    #### Returns 1 element:
 
     The output value that appears in the `Search Results` Json component.
   </Tab>
